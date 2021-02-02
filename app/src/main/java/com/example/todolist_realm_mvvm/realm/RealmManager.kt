@@ -2,6 +2,7 @@ package com.example.todolist_realm_mvvm.realm
 
 import com.example.todolist_realm_mvvm.service.model.TarefaModel
 import io.realm.Realm
+import io.realm.RealmConfiguration
 import io.realm.RealmResults
 
 class RealmManager {
@@ -12,11 +13,12 @@ class RealmManager {
         return realm.where(TarefaModel::class.java).equalTo("id", id).findFirst()
     }
 
-    fun findAll() {
+    fun findAll() : List<TarefaModel>{
         //return realm.where(TarefaModel::class.java).findAll()
         val resultado: RealmResults<TarefaModel> = realm.where(
             TarefaModel::class.java).findAll()
         println(resultado)
+        return resultado
     }
 
     fun insert(novaAtividade: String) {

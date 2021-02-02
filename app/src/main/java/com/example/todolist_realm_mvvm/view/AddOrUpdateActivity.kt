@@ -37,6 +37,8 @@ class AddOrUpdateActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnAdicionar -> {
                 val edtNovaAtividade: String = findViewById<TextInputEditText>(R.id.edtNovaAtividade).text.toString()
                 mViewModel.save(edtNovaAtividade)
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
         }
     }

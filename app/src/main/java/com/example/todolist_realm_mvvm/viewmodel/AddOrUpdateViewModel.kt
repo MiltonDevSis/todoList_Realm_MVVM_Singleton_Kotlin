@@ -17,4 +17,8 @@ class AddOrUpdateViewModel(application: Application) : AndroidViewModel(applicat
     fun save(tarefa: String) {
         mTarefaRepository.save(tarefa, getApplication())
     }
+
+    fun update(){
+
+    }
 }
