@@ -12,9 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist_realm_mvvm.R
-import com.example.todolist_realm_mvvm.adapter.AdapterTarefa
-import com.example.todolist_realm_mvvm.service.model.TarefaModel
-import com.example.todolist_realm_mvvm.viewmodel.AddOrUpdateViewModel
+import com.example.todolist_realm_mvvm.view.adapter.AdapterTarefa
 import com.example.todolist_realm_mvvm.viewmodel.MainActivityViewModel
 import es.dmoral.toasty.Toasty
 import io.realm.Realm
@@ -28,6 +26,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        supportActionBar!!.hide()
 
         Realm.init(this)
 
@@ -72,10 +72,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun observer(){
         mViewModel.listaTarefa.observe(this, Observer {
            if (it.isNotEmpty()) {
-               Toasty.success(this, "tamanho: ${it.size}", Toasty.LENGTH_LONG).show()
                mAdapter.listar(it)
-           }else{
-               Toasty.error(this, "Vazio", Toasty.LENGTH_LONG).show()
            }
         })
     }

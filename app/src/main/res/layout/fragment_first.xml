@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="10dp"
-        android:text="01" />
+        android:text="" />
 
     <TextView
         android:id="@+id/txtAtividade"
@@ -20,6 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="19"
         android:padding="10dp"
-        android:text="Atividade" />
+        android:text="" />
 </LinearLayout>
 
